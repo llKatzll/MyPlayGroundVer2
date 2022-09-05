@@ -15,8 +15,12 @@
 using namespace std;
 
 string name;
+
 string opendoor;
 string shouldIopendooragain;
+
+string startAsking;
+int startAskingCount;
 
 void welcome() {
 	msleep;
@@ -28,8 +32,8 @@ void welcome() {
 	msleep;
 
 
-	cout << ">> 연다" << endl;
-	cout << ">> 열지않는다" << endl;
+	cout << ">> 연다 == 1" << endl;
+	cout << ">> 열지않는다 == 2" << endl;
 
 
 	cin >> opendoor;
@@ -69,12 +73,12 @@ void welcome() {
 		msleep;
 
 
-		cout << ">> 연다" << endl;
-		cout << ">> 열지않는다" << endl;
+		cout << ">> 연다 == 1" << endl;
+		cout << ">> 열지않는다 == 2" << endl;
 
 
 		cin >> shouldIopendooragain;
-		if (shouldIopendooragain == "연다") {
+		if (shouldIopendooragain == "1") {
 			sleep;
 			cout << "(문은 신기하게 부드럽게 열렸다.)" << lendl;
 			msleep;
@@ -87,11 +91,11 @@ void welcome() {
 			msleep;
 			cout << "(침묵도 잠시, 그가 입을 열었다)" << lendl;
 		}
-		else if (shouldIopendooragain == "열지않는다") {
+		else if (shouldIopendooragain == "2") {
 			msleep;
 			cout << "(음.. 역시)" << lendl;
 			sleep;
-			cout << "(실험 정신인진 모르겠으나, 이번에도 문을 열지 않기로 하고 기다리기로 했다.)" << lendl;
+			cout << "(역시 기분 나쁘다. 이번에도 문을 열지 않기로 하고 기다리기로 했다.)" << lendl;
 			lsleep;
 			cout << "(멀리서 누군가 짜증내는 소리가 들린다.)" << lendl;
 			msleep;
@@ -112,6 +116,31 @@ void welcome() {
 }
 
 void introduce() {
+	msleep;
+	cout << "\"댁, 이름은?\"" << lendl;
+	lsleep;
+	cout << "(중후한 목소리에 잠깐 눌렸다 정신을 차린 나는 그에 응답했다.)" << lendl;
+	lsleep;
+	cout << "\"제 이름은..\"" << lendl;
+	sleep;
+	cin >> name;
+	cout << endl;
+	cout << "\" \'" + name + "\' " + "... 이미 알고 있었습니다.\"" << lendl;
+	lsleep;
+	cout << "\"여긴 무한한 공간." + name + " 님은 쉽게 상상속 이라 생각하시면 되겠습니다..\"" << lendl;
+	lsleep;
+	cout << "\"" + name + " 님은 이 문 너머의 세계에서 예상외의 일을 많이 접하실겁니다..\"" << lendl;
+	lsleep;
+	cout << "\"혹시.. 궁금한 것이나 모르는게 있으면 말해주시지요..\"" << lendl;
+	msleep;
+	cout << "(그는 눈 앞에 놓인 거대한 문을 열 준비를 하고 있다.)" << lendl;
+	msleep;
+
+
+	cout << ">> 여긴 어디죠? == 1" << endl;
+	cout << ">> 당신은 누구시죠? == 2" << endl;
+	cout << ">> 문 너머엔 무엇이 있죠? == 3" << endl;
+	cout << ">> (아무 것도 묻지 않는다.) == 4" << endl;
 
 }
 
