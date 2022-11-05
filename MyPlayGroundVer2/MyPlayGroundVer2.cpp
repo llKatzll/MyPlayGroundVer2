@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <Windows.h>
-#include <iostream>
 #include <memory>
 
 #define lendl endl << endl;
@@ -16,13 +15,13 @@ using namespace std;
 
 string name;
 
-string opendoor;
-string shouldIopendooragain;
 
-string startAsking;
-int startAskingCount;
 
 void welcome() {
+
+	string opendoor;
+	string shouldIopendooragain;
+
 	msleep;
 	cout << "주변은 어둠으로 뒤덮여있다." << lendl;
 	msleep;
@@ -37,7 +36,7 @@ void welcome() {
 
 
 	cin >> opendoor;
-	if (opendoor == "연다") {
+	if (opendoor == "1") {
 		sleep;
 		cout << "(문은 신기하게 부드럽게 열렸다.)" << lendl;
 		msleep;
@@ -50,7 +49,7 @@ void welcome() {
 		msleep;
 		cout << "(침묵도 잠시, 그가 입을 열었다)" << lendl;
 	}
-	else if (opendoor == "열지않는다") {
+	else if (opendoor == "2") {
 		sleep;
 		cout << "(문을 열지 않고 돌아가기로 결정했다.)" << lendl;
 		msleep;
@@ -125,7 +124,7 @@ void introduce() {
 	sleep;
 	cin >> name;
 	cout << endl;
-	cout << "\" \'" + name + "\' " + "... 이미 알고 있었습니다.\"" << lendl;
+	cout << "\" \'"+ name + "\' " + "... 이미 알고 있었습니다.\"" << lendl;
 	lsleep;
 	cout << "\"여긴 무한한 공간." + name + " 님은 쉽게 상상속 이라 생각하시면 되겠습니다..\"" << lendl;
 	lsleep;
@@ -135,17 +134,105 @@ void introduce() {
 	msleep;
 	cout << "(그는 눈 앞에 놓인 거대한 문을 열 준비를 하고 있다.)" << lendl;
 	msleep;
+	cout << lendl;
+}
+
+void startingAsking() {
+	string startAsking;
+	int askedone = 1;
+	int askedtwo = 1;
+	int askedthree = 1;
+	int askedfour = 1;
+	int asked = 4;
+	
+	for (int i = 1; i < asked; i++) {
 
 
-	cout << ">> 여긴 어디죠? == 1" << endl;
-	cout << ">> 당신은 누구시죠? == 2" << endl;
-	cout << ">> 문 너머엔 무엇이 있죠? == 3" << endl;
-	cout << ">> (아무 것도 묻지 않는다.) == 4" << endl;
+		cout << ">> 여긴 어디죠? == 1" << endl;
+		cout << ">> 당신은 누구시죠? == 2" << endl;
+		cout << ">> 문 너머엔 무엇이 있죠? == 3" << endl;
+		cout << ">> (아무 것도 묻지 않는다.) == 4" << endl;
+		msleep;
+		cout << endl;
 
+		cin >> startAsking;
+
+		if (startAsking == "1") {
+			if (askedone == 2) {
+				msleep;
+				cout << "\"그 질문은 이미 답해드렸습니다..\"" << lendl;
+			}
+			else if (askedone != 2) {
+				msleep;
+				cout << "\"여긴 어디죠?\"" << lendl;
+				msleep;
+				cout << "\"......\"" << lendl;
+				lsleep;
+				cout << "\"아까 말씀드렸듯이.. 여긴 앞으로 이동할 세계의 다리 역할을 하는 곳일뿐..\"" << lendl;
+				lsleep;
+				cout << "\"그 이상.. 그 이하도 없습니다..\"" << lendl;
+				askedone++;
+				msleep;
+			}
+			
+		}
+		if (startAsking == "2") {
+			if (askedtwo == 2) {
+				msleep;
+				cout << "\"그 질문은 이미 답해드렸습니다..\"" << lendl;
+			}
+			else if (askedtwo != 2) {
+				msleep;
+				cout << "\"당신은 누구시죠?\"" << lendl;
+				lsleep;
+				cout << "\"저는 이쪽으로 놀러온 사람들을 배웅해주는 사람 입니다..\"" << lendl;
+				msleep;
+				cout << "\"저는 편하게 '가이드' 라 불러주시지요.\"" << lendl;
+				askedtwo++;
+				msleep;
+			}
+		}
+		if (startAsking == "3") {
+			if (askedthree == 2) {
+				msleep;
+				cout << "\"그 질문은 이미 답해드렸습니다..\"" << lendl;
+			}
+			else if (askedthree != 2) {
+				msleep;
+				cout << "\"문 너머엔 무엇이 있죠?\"" << lendl;
+				msleep;
+				cout << "\"저도 모릅니다.\"" << lendl;
+				lsleep;
+				cout << "(?)" << lendl;
+				msleep;
+				cout << "\"모든것은 당신의 생각에 달렸습니다..\"" << lendl;
+				askedthree++;
+				msleep;
+			}
+		}
+		if (startAsking == "4") {
+			msleep;
+			cout << "(아무것도 묻지 않고 문이 열리는 것을 기다린다.)" << lendl;
+			lsleep;
+			break;
+		}
+	}
+	msleep;
+	cout << "(거대한 문이 톱니가 굴러가는 소리를 내며 열린다,)" << lendl;
+	lsleep;
+	cout << "(쿠구구구구구..)" << lendl;
+	msleep;
+	cout << "\"대화는 여기까지.\"" << lendl;
+	msleep;
+	cout << "\"나중에 뵙죠, " + name + " 님.\"" << lendl;
+	lsleep;
 }
 
 
 int main()
 {
 	welcome();
+	introduce();
+	startingAsking();
+	test;
 }
